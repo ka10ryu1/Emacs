@@ -10,6 +10,10 @@
 ### .emacs.dに以下のファイルとフォルダを追加する
 - init.el
 - custom/
+- sunippets/
 
 ### git-completeのコピー
 custom直下にgit-complete.elをコピーする
+
+## 利用できるキーボードショートカット
+[global_set_key.el](https://github.com/ka10ryu1/Emacs/blob/master/custom/global_set_key.el)を参照
