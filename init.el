@@ -42,10 +42,10 @@
 (package-install 'py-autopep8)
 (require 'py-autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-;; Flymake($ pip install pyflake)
-(package-install 'flymake)
-(flymake-mode t)
-(require 'flymake-python-pyflakes)
+;; Flymake($ pip install pyflakes)
+;; $ which pyflakes
+; show message on mini-buffer
+(package-install 'flymake-python-pyflakes)
 (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 (defun flymake-show-help ()
   (when (get-char-property (point) 'flymake-overlay)
@@ -113,25 +113,18 @@
       (forward-char 1)
       (delete-region (point) current-pt))))(define-key minibuffer-local-map (kbd "M-^") 'my-minibuffer-delete-parent-directory)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(avy-migemo-function-names
-   (quote
-    (swiper--add-overlays-migemo
-     (swiper--re-builder :around swiper--re-builder-migemo-around)
-     (ivy--regex :around ivy--regex-migemo-around)
-     (ivy--regex-or-literal :around ivy--regex-or-literal-migemo-around)
-     (ivy--regex-plus :around ivy--regex-plus-migemo-around)
-     ivy--highlight-default-migemo ivy-occur-revert-buffer-migemo ivy-occur-press-migemo avy-migemo-goto-char avy-migemo-goto-char-2 avy-migemo-goto-char-in-line avy-migemo-goto-char-timer avy-migemo-goto-subword-1 avy-migemo-goto-word-1 avy-migemo-isearch avy-migemo-org-goto-heading-timer avy-migemo--overlay-at avy-migemo--overlay-at-full)))
- '(package-selected-packages
-   (quote
-    (whitespace flymake flymake-python-pyflakes flycheck autopep8 py-autopep8 yasnippet neotree dumb-junp recentf-ext recentf find-file-in-project git-complete jedi auto-complete company-jedi swoop counsel sequential-command))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (flymake-python-pyflakes whitespace recentf auto-complete yasnippet swoop sequential-command recentf-ext py-autopep8 neotree jedi flymake-easy flycheck find-file-in-project counsel))))

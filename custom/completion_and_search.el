@@ -16,10 +16,6 @@
 (setq ivy-extra-directories nil)
 (setq ivy-re-builders-alist
       '((t . ivy--regex-plus)))
-
-;; counsel設定
-;(global-set-key (kbd "M-x") 'counsel-M-x)
-;(global-set-key (kbd "C-x C-f") 'counsel-find-file) ;; find-fileもcounsel任せ！
 (defvar counsel-find-file-ignore-regexp (regexp-opt '("./" "../")))
 
 
@@ -29,22 +25,7 @@
 ;;
 ;; C-s で検索文字を入力し、C-oを入力することで候補をリスト化できる
 (package-install 'swoop)
-
 (require 'swoop)
-;; (global-set-key (kbd "C-o")   'swoop)
-;; (global-set-key (kbd "C-M-o") 'swoop-multi)
-;; (global-set-key (kbd "M-o")   'swoop-pcre-regexp)
-;; (global-set-key (kbd "C-S-o") 'swoop-back-to-last-position)
-;; (global-set-key (kbd "H-6")   'swoop-migemo) ;; Option for Japanese match
-
-;; ;; 検索の移行
-;; ;; isearch     > press [C-o] > swoop
-;; ;; evil-search > press [C-o] > swoop
-;; ;; swoop       > press [C-o] > swoop-multi
-;; (define-key isearch-mode-map (kbd "C-o") 'swoop-from-isearch)
-;; ;(define-key evil-motion-state-map (kbd "C-o") 'swoop-from-evil-search)
-;; ;(define-key swoop-map (kbd "C-o") 'swoop-multi-from-swoop)
-
 
 ;; =============
 ;; auto-complete
@@ -54,12 +35,10 @@
 ;; 一度だけM-x jedi:install-serverを実行する必要あり
 (package-install 'auto-complete)
 (package-install 'jedi)
-
 (ac-config-default)
 (ac-set-trigger-key "TAB")
 (setq ac-use-menu-map t);; 補完メニュー表示時にC-n/C-pで補完候補選択
 (setq ac-use-fuzzy t);; 曖昧マッチ
-
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
@@ -78,8 +57,6 @@
 ;; これといった行補完の候補がなかった場合、
 ;; まず、それぞれの検索結果から「クエリ文字列より右の部分」だけを取り出します。
 (require 'git-complete)
-;; (global-unset-key (kbd "C-c C-c")) ;; 一応unbindしておきましょう
-;; (global-set-key (kbd "C-c C-c") 'git-complete)
 (add-to-list 'load-path "~/.emacs.d/git-complete") ;; お好きなように
 (setq git-complete-enable-autopair t)
 
@@ -154,7 +131,5 @@
 (yas-global-mode t)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/snippets")
-
-
 
 ;; [EOF]
