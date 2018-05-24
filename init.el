@@ -15,6 +15,10 @@
                (list (list host_ (cons "Proxy" auth_)))))
          )))
 
+;; If you want to set it in Emacs setting, do something like this:
+;(setenv "http_proxy" "http://[user:passwd@]proxy.server:port")
+;(setenv "https_proxy" "https://[user:passwd@]proxy.server:port")
+
 
 ;; ===========
 ;; MELFAの設定
@@ -42,15 +46,7 @@
 ;;   1. ホームディレクトリに.fontsフォルダを作成する
 ;;   2. ttfファイルを.fontsフォルダに移動する
 ;;   3. $ fc-cache -fv # フォントキャッシュのクリア
-
-;; Basic font
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:foundry "Cica Bold" :family "Cica Bold")))))
-
+(font-spec :family "Cica Bold" :size 14)
 
 ;; ==================
 ;; seauential-command
@@ -163,3 +159,9 @@
  '(package-selected-packages
    (quote
     (popup flymake-python-pyflakes whitespace recentf auto-complete yasnippet swoop sequential-command recentf-ext py-autopep8 neotree jedi flymake-easy flycheck find-file-in-project counsel))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
