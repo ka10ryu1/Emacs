@@ -29,3 +29,11 @@
 (global-set-key (kbd "C-c C-c") 'git-complete)
 ;; neotreeの設定
 (global-set-key [f8] 'neotree-toggle)
+;; find-file-in-project
+(global-set-key [(super shift i)] 'find-file-in-project)
+
+;; recentf
+(define-key global-map [(super r)] 'counsel-recentf) ;; counselにおまかせ！
+;; dump-jump
+(define-key global-map [(super d)] 'dumb-jump-go) ;; go-to-definition!
+(define-key global-map [(super shift d)] 'dumb-jump-back)

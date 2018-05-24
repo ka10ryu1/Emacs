@@ -1,3 +1,21 @@
+;; Proxy setting
+(cond ((getenv "HTTP_PROXY")
+       (let* ((url_ (url-generic-parse-url (getenv "HTTP_PROXY")))
+              (auth_ (if (and (url-user url_) (url-password url_) )
+                         (base64-encode-string
+                          (format "%s:%s" (url-user url_) (url-password url_)))
+                       nil))
+              (host_ (format "%s:%s" (url-host url_) (url-portspec url_))))
+
+         (defvar url-proxy-services
+               (list (cons "no_proxy"  "^\\(localhost\\|10.*\\)")
+                     (cons "http" host_)))
+         (if auth_
+             (defvar url-http-proxy-basic-auth-storage
+               (list (list host_ (cons "Proxy" auth_)))))
+         )))
+
+
 ;; ===========
 ;; MELFAの設定
 ;; ===========
@@ -6,12 +24,27 @@
 (require 'package)
 ;; Emacs JP を始めとして、package-archives の後ろに追加する例が多いので従った。
 ;; http://emacs-jp.github.io/packages/package-management/package-el.html
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 ;; init.el で package-install() せず、M-x package-list-packages から
 ;; インストールする場合、これらは不要。package-install() が良しなに
 ;; 初期化してくれるため。
 (package-initialize)
 (package-refresh-contents)
+
+;; ==============
+;; フォントの設定
+;; ==============
+;; https://github.com/miiton/Cica
+
+;; Basic font
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:foundry "Cica Bold" :family "Cica Bold")))))
+
 
 ;; ==================
 ;; seauential-command
@@ -28,6 +61,7 @@
 ;; =======================
 ;;
 (add-to-list 'load-path "~/.emacs.d/custom")
+(package-install 'popup)
 (load "git-complete.el")
 (load "completion_and_search.el")
 (load "global_set_key.el")
@@ -114,12 +148,7 @@
       (delete-region (point) current-pt))))(define-key minibuffer-local-map (kbd "M-^") 'my-minibuffer-delete-parent-directory)
 
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -127,4 +156,4 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flymake-python-pyflakes whitespace recentf auto-complete yasnippet swoop sequential-command recentf-ext py-autopep8 neotree jedi flymake-easy flycheck find-file-in-project counsel))))
+    (popup flymake-python-pyflakes whitespace recentf auto-complete yasnippet swoop sequential-command recentf-ext py-autopep8 neotree jedi flymake-easy flycheck find-file-in-project counsel))))

@@ -68,7 +68,6 @@
 ;; 当然ivyが効いているので絞込検索が可能です！
 (package-install 'find-file-in-project)
 (require 'find-file-in-project)
-(global-set-key [(super shift i)] 'find-file-in-project)
 
 ;; =======
 ;; recentf
@@ -93,8 +92,7 @@
 (setq recentf-auto-cleanup 'never)             ;; 保存する内容を整理
 (run-with-idle-timer 30 t '(lambda () (with-suppressed-message (recentf-save-list))))
 (require 'recentf-ext) ;; ちょっとした拡張
-
-(define-key global-map [(super r)] 'counsel-recentf) ;; counselにおまかせ！
+;(define-key global-map [(super r)] 'counsel-recentf) ;; counselにおまかせ！
 
 ;; =========
 ;; dumb-junp
@@ -105,8 +103,8 @@
 (setq dumb-jump-mode t)
 (setq dumb-jump-selector 'ivy) ;; 候補選択をivyに任せます
 (setq dumb-jump-use-visible-window nil)
-(define-key global-map [(super d)] 'dumb-jump-go) ;; go-to-definition!
-(define-key global-map [(super shift d)] 'dumb-jump-back)
+;(define-key global-map [(super d)] 'dumb-jump-go) ;; go-to-definition!
+;(define-key global-map [(super shift d)] 'dumb-jump-back)
 
 ;; =======
 ;; neotree
