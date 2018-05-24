@@ -36,6 +36,12 @@
 ;; フォントの設定
 ;; ==============
 ;; https://github.com/miiton/Cica
+;; * dejavu font の場所
+;;   /usr/share/fonts/truetype/dejavu/
+;; * フォントの設定方法
+;;   1. ホームディレクトリに.fontsフォルダを作成する
+;;   2. ttfファイルを.fontsフォルダに移動する
+;;   3. $ fc-cache -fv # フォントキャッシュのクリア
 
 ;; Basic font
 (custom-set-faces
