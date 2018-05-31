@@ -1,3 +1,7 @@
+;; install
+;; $ pip install autopep8
+;; $ pip install pyflakes
+
 ;; Proxy setting
 (cond ((getenv "HTTP_PROXY")
        (let* ((url_ (url-generic-parse-url (getenv "HTTP_PROXY")))
@@ -46,7 +50,8 @@
 ;;   1. ホームディレクトリに.fontsフォルダを作成する
 ;;   2. ttfファイルを.fontsフォルダに移動する
 ;;   3. $ fc-cache -fv # フォントキャッシュのクリア
-(font-spec :family "Cica Bold" :size 14)
+;(set-frame-font "Cica-13.5"); for F12 test
+(add-to-list 'default-frame-alist '(font . "Cica-13.5"))
 
 ;; ==================
 ;; seauential-command
