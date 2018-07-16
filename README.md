@@ -13,7 +13,7 @@ Emacsの設定ファイル
 ```console
 $ pip install autopep8
 $ pip install pyflakes
-$ sudo apt install p7zip fontforge
+$ sudo apt install p7zip fontforge virtualenv
 ```
 
 ## .emacs.dフォルダの生成

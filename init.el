@@ -1,6 +1,7 @@
 ;; install
 ;; $ pip install autopep8
 ;; $ pip install pyflakes
+;; $ sudo apt install virtualenv
 
 ;; Proxy setting
 (cond ((getenv "HTTP_PROXY")
@@ -78,6 +79,10 @@
 ;; ===================
 ;; Python開発支援ツール
 ;; ===================
+;; jedi setup
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+(add-hook 'python-mode-hook 'jedi:ac-setup)
 ;;
 ;; pep8対応($ pip install autopep8)
 (package-install 'py-autopep8)
