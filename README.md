@@ -1,19 +1,61 @@
-# Emacsの設定ファイル
+# 概要
 
-## 別途必要なファイル
+Emacsの設定ファイル
 
-### git-comlete
+# 動作環境
 
-[gihub](https://github.com/zk-phi/git-complete)からcloneしてくる
+- Emacs 25.1.1 ($ emacs --version)
 
-## 使い方
-### .emacs.dに以下のファイルとフォルダを追加する
+# 導入手順
+
+## 必要なパッケージのインストール
+
+```console
+$ pip install autopep8
+$ pip install pyflakes
+$ sudo apt install p7zip fontforge
+```
+
+## .emacs.dフォルダの生成
+
+```console
+$ makedir ~/.emacs.d
+```
+
+## .emacs.dに以下のファイルとフォルダを追加する
 - init.el
 - custom/
 - sunippets/
 
-### git-completeのコピー
+```console
+$ cp -r ./init.el ./custom/ ./sunippets/
+```
+
+## git-completeのコピー
+
 custom直下にgit-complete.elをコピーする
 
-## 利用できるキーボードショートカット
+```console
+$ ./git-complete.sh
+$ cp ./git-complete/git-complete.el ~/.emacs.d/custom/
+```
+
+## 日本語フォント（Cica）のインストール
+
+```console
+$ cica.sh
+```
+
+あとはCicaのREADMEに従ってフォントの　ビルドをするか、ビルド済みパッケージをダウンロードする
+
+ttfファイルが作成されたら、
+
+- ホームディレクトリに.fontsフォルダを作成する
+- ttfファイルを.fontsフォルダに移動する
+- $ fc-cache -fv # フォントキャッシュのクリア
+
+
+# 利用できるキーボードショートカット
+
+
 [global_set_key.el](https://github.com/ka10ryu1/Emacs/blob/master/custom/global_set_key.el)を参照
