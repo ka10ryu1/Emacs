@@ -54,6 +54,14 @@
 ;(set-frame-font "Cica-13.5"); for F12 test
 (add-to-list 'default-frame-alist '(font . "Cica-13.5"))
 
+;; ==========
+;; Mozcの設定
+;; ==========
+(require 'mozc)
+(prefer-coding-system 'utf-8)
+(set-language-environment "Japanese")
+(setq default-input-method "japanese-mozc")
+
 ;; ==================
 ;; seauential-command
 ;; ==================

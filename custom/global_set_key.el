@@ -2,6 +2,10 @@
 ;; キーボードショートカットの設定
 ;; =========================
 ;;
+;; Mozcを全角/半角キーに割り当て
+(global-set-key [zenkaku-hankaku] #'toggle-input-method)
+;; C-\でMozcに切り替わらないようにする
+(global-unset-key "\C-\\")
 ;; C-a、C-eを強化
 (global-set-key "\C-a" 'seq-home)
 (global-set-key "\C-e" 'seq-end)
