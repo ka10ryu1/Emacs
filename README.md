@@ -13,7 +13,8 @@ Emacsの設定ファイル
 ```console
 $ pip install autopep8
 $ pip install pyflakes
-$ sudo apt install p7zip fontforge virtualenv
+$ pip install jedi
+$ sudo apt install p7zip fontforge virtualenv emacs-mozc-bin
 ```
 
 ## .emacs.dフォルダの生成
@@ -28,7 +29,7 @@ $ makedir ~/.emacs.d
 - sunippets/
 
 ```console
-$ cp -r ./init.el ./custom/ ./sunippets/
+$ cp -r ./init.el ./custom/ ./sunippets/ ~/.emacs.d
 ```
 
 ## git-completeのコピー
